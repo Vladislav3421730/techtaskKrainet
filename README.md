@@ -8,7 +8,7 @@
 }
 ```
 Пример добавления пользователя по адресу 
-```bash http://localhost:8080/registration```
+```bash http://localhost:8080/register```
 <br>
 
 ```bash
