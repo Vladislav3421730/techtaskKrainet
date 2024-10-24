@@ -23,6 +23,7 @@ public interface RecordService extends BaseService<Record, RecordDto, Long> {
    Record ConvertToRecord(RecordAddDto recordAddDto, Principal principal);
 
    List<RecordDto> findAllByProjectId(Long id);
+   List<RecordDto> findAllByUserId(Long id);
 
 }
 

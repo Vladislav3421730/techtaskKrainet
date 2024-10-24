@@ -69,6 +69,13 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
+    public List<RecordDto> findAllByUserId(Long id) {
+        return recordRepository.findRecordsByUserId(id).stream()
+                .map(MapFromRecordToRecordDto::map)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<RecordDto> findAll() {
         return recordRepository.findAll().stream()
                 .map(MapFromRecordToRecordDto::map)

@@ -3,7 +3,9 @@ package com.example.techtaskkrainet.services.Impl;
 import com.example.techtaskkrainet.exceptions.ProjectNotFoundException;
 import com.example.techtaskkrainet.models.Project;
 import com.example.techtaskkrainet.repositories.ProjectRepository;
+import com.example.techtaskkrainet.repositories.RecordRepository;
 import com.example.techtaskkrainet.services.ProjectService;
+import com.example.techtaskkrainet.services.RecordService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     // Репозиторий для работы с сущностью Project в базе данных
     private final ProjectRepository projectRepository;
+    private final RecordRepository recordRepository;
 
     @Override
     @Transactional
@@ -54,6 +57,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (!projectRepository.existsById(project.getId())) {
             throw new ProjectNotFoundException(String.format("Проект с id %d не найден. Обновление невозможно", project.getId()));
         }
+        project.setRecordList(recordRepository.findRecordByProjectId(project.getId()));
         return projectRepository.save(project);
     }
 }

@@ -3,6 +3,7 @@ package com.example.techtaskkrainet.services.Impl;
 import com.example.techtaskkrainet.exceptions.UserNotFoundException;
 import com.example.techtaskkrainet.models.Role;
 import com.example.techtaskkrainet.models.User;
+import com.example.techtaskkrainet.repositories.RecordRepository;
 import com.example.techtaskkrainet.repositories.UserRepository;
 import com.example.techtaskkrainet.services.UserService;
 import jakarta.transaction.Transactional;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService {
 
     // Репозиторий для взаимодействия с базой данных
     private final UserRepository userRepository;
+    private final RecordRepository recordRepository;
 
 
     @Override
@@ -71,6 +73,8 @@ public class UserServiceImpl implements UserService {
         if (!updatedUser.getPassword().equals(user.getPassword())) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
+        //Сохраняем записи, которые были у пользователя
+        user.setRecordList(recordRepository.findRecordsByUserId(user.getId()));
 
         // Сохраняем обновлённого пользователя
         return userRepository.save(user);

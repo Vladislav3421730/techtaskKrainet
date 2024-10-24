@@ -42,6 +42,13 @@ public class RecordController {
         return recordService.findAllByProjectId(projectId);
     }
 
+    @GetMapping("/get/ByUserId/{projectId}")
+    public List<RecordDto> findRecordsByUserId(@PathVariable Long projectId){
+        return recordService.findAllByUserId(projectId);
+    }
+
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDto> DeleteRecord(@PathVariable Long id){
         recordService.delete(id);
