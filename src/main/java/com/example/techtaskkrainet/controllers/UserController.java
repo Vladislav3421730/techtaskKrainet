@@ -16,12 +16,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/add")
-    public ResponseEntity<ResponseDto> addNewUser(@RequestBody User user){
-        User savingUser=userService.save(user);
-        return ResponseEntity.ok(new ResponseDto(String.format("Пользователь %s был сохранён",savingUser.getUsername())));
-    }
-
     @GetMapping("/get")
     public List<User> findAllUsers(){
         return userService.findAll();
