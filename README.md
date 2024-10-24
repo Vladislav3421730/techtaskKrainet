@@ -8,7 +8,7 @@
 }
 ```
 Пример добавления пользователя по адресу 
-```bash http://localhost:8080/register```
+```http://localhost:8080/register```
 <br>
 
 ```bash
@@ -19,7 +19,7 @@
     "surname" : "your_surname"
 }
 ```
-Пример добавления записи по адресу ```bash http://localhost:8080/record/add``` <br>
+Пример добавления записи по адресу ```http://localhost:8080/record/add``` <br>
 ```bash
 {
     "startTime": "2024-10-24 09:07:47",
@@ -27,7 +27,7 @@
     "projectId" : 3 
 }
 ```
-Пример добавления проекта по адресу ```bash http://localhost:8080/project/add``` <br>
+Пример добавления проекта по адресу ```http://localhost:8080/project/add``` <br>
 ```bash
 {
      "name": "project_name",
