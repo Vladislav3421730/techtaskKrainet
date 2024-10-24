@@ -57,7 +57,7 @@ http://localhost:8080/project/delete/1
 http://localhost:8080/record/delete/1
 ```
 Пример обновлений (Необходимо вставить полное тело записи, которую вы хотите изменить) <br>
-```bash
+```
 http://localhost:8080/user/update
 http://localhost:8080/record/update
 http://localhost:8080/project/update
