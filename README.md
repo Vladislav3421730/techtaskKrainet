@@ -11,7 +11,7 @@
     "name" : "your_name",
     "surname" : "your_surname"
 }
-```<br>
+```
 Пример добавления записи по адресу ```bash http://localhost:8080/record/add``` <br>
 ```bash
 {
