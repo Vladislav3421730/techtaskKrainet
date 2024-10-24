@@ -19,7 +19,7 @@ public class UserController {
     @PostMapping("/add")
     public ResponseEntity<ResponseDto> addNewUser(@RequestBody User user){
         User savingUser=userService.save(user);
-        return ResponseEntity.ok(new ResponseDto(String.format("Project %s has been saved",savingUser.getUsername())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Пользователь %s был сохранён",savingUser.getUsername())));
     }
 
     @GetMapping("/get")
@@ -35,13 +35,13 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDto> DeleteUser(@PathVariable Long id){
         userService.delete(id);
-        return ResponseEntity.ok(new ResponseDto(String.format("User with id %d has been deleted",id)));
+        return ResponseEntity.ok(new ResponseDto(String.format("Пользователь с id %d был удалён",id)));
     }
 
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> UpdateUser(@RequestBody User user){
         userService.update(user);
-        return ResponseEntity.ok(new ResponseDto(String.format("User with id %d has been updated",user.getId())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Пользователь с id %d был обновлён",user.getId())));
     }
 
 

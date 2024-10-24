@@ -24,7 +24,7 @@ public class RecordController {
     public ResponseEntity<ResponseDto> addNewRecord(@RequestBody RecordAddDto recordAddDto, Principal principal){
         Record record=recordService.ConvertToRecord(recordAddDto,principal);
         recordService.save(record);
-        return ResponseEntity.ok(new ResponseDto(String.format("Record %d has been saved",record.getId())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Запись %d была сохранена",record.getId())));
     }
 
     @GetMapping("/get")
@@ -45,12 +45,12 @@ public class RecordController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDto> DeleteRecord(@PathVariable Long id){
         recordService.delete(id);
-        return ResponseEntity.ok(new ResponseDto(String.format("Record with id %d has been deleted",id)));
+        return ResponseEntity.ok(new ResponseDto(String.format("Запись с id %d была удалена",id)));
     }
 
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> UpdateRecord(@RequestBody Record record){
         recordService.update(record);
-        return ResponseEntity.ok(new ResponseDto(String.format("Record with id %d has been updated",record.getId())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Запись с id %d была обновлена",record.getId())));
     }
 }

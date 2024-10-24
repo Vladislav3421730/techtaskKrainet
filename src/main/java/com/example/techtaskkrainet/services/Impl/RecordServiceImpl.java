@@ -2,6 +2,7 @@ package com.example.techtaskkrainet.services.Impl;
 
 import com.example.techtaskkrainet.dto.RecordAddDto;
 import com.example.techtaskkrainet.dto.RecordDto;
+import com.example.techtaskkrainet.exceptions.ProjectIdNullException;
 import com.example.techtaskkrainet.exceptions.ProjectNotFoundException;
 import com.example.techtaskkrainet.exceptions.RecordNotFoundException;
 import com.example.techtaskkrainet.exceptions.WrongDateException;
@@ -35,14 +36,17 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public Record ConvertToRecord(RecordAddDto recordAddDto, Principal principal) {
-        // Получаем текущего пользователя по username и проект по ID
-        User user = userService.findByUsername(principal.getName());
-        Project project = projectService.findById(recordAddDto.getProjectId());
-
         // Проверка на корректность времени
         if (recordAddDto.getStartTime().compareTo(recordAddDto.getEndTime()) >= 0) {
             throw new WrongDateException("Конечное время должно быть больше чем начальное");
         }
+        //Если project id null
+        if(recordAddDto.getProjectId()==null){
+            throw new ProjectIdNullException("Введите id проекта корректно");
+        }
+        // Получаем текущего пользователя по username и проект по ID
+        User user = userService.findByUsername(principal.getName());
+        Project project = projectService.findById(recordAddDto.getProjectId());
 
         // Создаем новую запись (Record) и добавляем её пользователю и проекту
         Record record = Record.builder()

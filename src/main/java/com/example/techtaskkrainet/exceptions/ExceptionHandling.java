@@ -19,6 +19,11 @@ public class ExceptionHandling {
         return new ResponseEntity<>(new AppError(registrationFailedException.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ProjectIdNullException.class)
+    public ResponseEntity<AppError> handleProjectIdNullException(ProjectIdNullException projectIdNullException){
+        return new ResponseEntity<>(new AppError(projectIdNullException.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(BunException.class)
     public ResponseEntity<AppError> handleBunException(BunException bunException){
         return new ResponseEntity<>(new AppError(bunException.getMessage()), HttpStatus.FORBIDDEN);

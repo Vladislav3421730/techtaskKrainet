@@ -19,7 +19,7 @@ public class ProjectController {
     @PostMapping("/add")
     public ResponseEntity<ResponseDto> addNewProject(@RequestBody Project project){
         Project savingProject=projectService.save(project);
-        return ResponseEntity.ok(new ResponseDto(String.format("Project %s has been saved",savingProject.getName())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Проект %s сохранён",savingProject.getName())));
     }
 
     @GetMapping("/get")
@@ -35,13 +35,13 @@ public class ProjectController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDto> DeleteProject(@PathVariable Long id){
         projectService.delete(id);
-        return ResponseEntity.ok(new ResponseDto(String.format("Project with id %d has been deleted",id)));
+        return ResponseEntity.ok(new ResponseDto(String.format("Проект с id id %d был удалён",id)));
     }
 
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> UpdateProject(@RequestBody Project project){
         projectService.update(project);
-        return ResponseEntity.ok(new ResponseDto(String.format("Project with id %d has been updated",project.getId())));
+        return ResponseEntity.ok(new ResponseDto(String.format("Проект с id %d был обновлён",project.getId())));
     }
 
 
