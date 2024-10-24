@@ -1,7 +1,14 @@
 ﻿# techtaskKrainet
-Примеры для входа приведены в классе AuthController.java<br>
-Пример добавления пользователя по адресу <br>
-```bash http://localhost:8080/user/add```
+Данные для входа приведены в классе AuthController.java<br>
+Пример входа в систему по адресу ```http://localhost:8080/login```<br>
+```bash
+{
+    "username" : "your_username",
+    "password" : "your_password"
+}
+```
+Пример добавления пользователя по адресу 
+```http://localhost:8080/register```
 <br>
 
 ```bash
@@ -12,7 +19,7 @@
     "surname" : "your_surname"
 }
 ```
-Пример добавления записи по адресу ```bash http://localhost:8080/record/add``` <br>
+Пример добавления записи по адресу ```http://localhost:8080/record/add``` <br>
 ```bash
 {
     "startTime": "2024-10-24 09:07:47",
@@ -20,7 +27,7 @@
     "projectId" : 3 
 }
 ```
-Пример добавления проекта по адресу ```bash http://localhost:8080/project/add``` <br>
+Пример добавления проекта по адресу ```http://localhost:8080/project/add``` <br>
 ```bash
 {
      "name": "project_name",
@@ -57,7 +64,7 @@ http://localhost:8080/project/delete/1
 http://localhost:8080/record/delete/1
 ```
 Пример обновлений (Необходимо вставить полное тело записи, которую вы хотите изменить) <br>
-```bash
+```
 http://localhost:8080/user/update
 http://localhost:8080/record/update
 http://localhost:8080/project/update
