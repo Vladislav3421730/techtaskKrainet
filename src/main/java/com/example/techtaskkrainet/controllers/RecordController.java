@@ -42,9 +42,9 @@ public class RecordController {
         return recordService.findAllByProjectId(projectId);
     }
 
-    @GetMapping("/get/ByUserId/{projectId}")
-    public List<RecordDto> findRecordsByUserId(@PathVariable Long projectId){
-        return recordService.findAllByUserId(projectId);
+    @GetMapping("/get/ByUserId/{userId}")
+    public List<RecordDto> findRecordsByUserId(@PathVariable Long userId){
+        return recordService.findAllByUserId(userId);
     }
 
 
