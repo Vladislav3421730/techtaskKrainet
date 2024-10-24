@@ -1,7 +1,14 @@
 ﻿# techtaskKrainet
 Примеры для входа приведены в классе AuthController.java<br>
-Пример добавления пользователя по адресу <br>
-```bash http://localhost:8080/user/add```
+Пример входа в систему по адресу ```http://localhost:8080/login```<br>
+```bash
+{
+    "username" : "your_username",
+    "password" : "your_password"
+}
+```
+Пример добавления пользователя по адресу 
+```bash http://localhost:8080/registration```
 <br>
 
 ```bash
